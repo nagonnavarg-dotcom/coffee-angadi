@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#211812">
+  <meta name="description"
+    content="Coffee ಅಂಗಡಿ — thoughtfully brewed coffee, warm hospitality and little moments worth slowing down for.">
+  <title>COFFEE ಅಂಗಡಿ — Every cup has a story</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <div class="announcement">A LITTLE PAUSE. A LOT OF GOOD COFFEE. <span>✳</span> MADE WITH CARE.</div>
+
+  <a class="brand" href="#top" aria-label="Coffee Angadi home">
+    <img src="{{ url_for('static', filename='images/coffee-angadi-logo.png') }}" alt="Coffee Angadi Logo"
+      class="brand-logo">
+  </a>
+
+  <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+  <nav class="main-nav" aria-label="Main navigation">
+    <a href="#menu">THE MENU</a>
+    <a href="#story">OUR STORY</a>
+    <a href="#owner">THE FOUNDER</a>
+    <a href="#gallery">GALLERY</a>
+    <a class="nav-cta" href="#visit">FIND US <span>↗</span></a>
+  </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-image" role="img" aria-label="Freshly brewed coffee on a warm cafe table"></div>
+      <div class="hero-shade"></div>
+      <div class="hero-content reveal">
+        <p class="eyebrow light">GOOD COFFEE. GOOD COMPANY.</p>
+        <h1>Every cup<br>has a <em>story.</em></h1>
+        <p class="hero-copy">A welcoming little corner for beautifully brewed coffee, unhurried conversations and
+          everyday moments worth remembering.</p>
+        <div class="hero-actions">
+          <a class="button button-gold" href="#menu">EXPLORE THE MENU <span>↗</span></a>
+          <a class="text-link light-link" href="#story">A LITTLE ABOUT US <span>↓</span></a>
+        </div>
+      </div>
+      <div class="hero-note"><span>01 / 05</span><i></i> YOUR NEW FAVOURITE COFFEE STOP</div>
+      <div class="hero-stamp">SIP<br>SLOWLY<br><span>✳</span></div>
+    </section>
+
+    <section class="intro section-pad">
+      <div class="intro-label"><span class="eyebrow">WELCOME TO OUR WORLD</span><span class="vertical-rule"></span><span
+          class="tiny">EST. WITH LOVE</span></div>
+      <div class="intro-copy">
+        <h2>Not just a coffee.<br><em>A feeling.</em></h2>
+        <p>At Coffee ಅಂಗಡಿ, we believe the best things happen when you slow down. From the first aroma to the final sip,
+          every cup is an invitation to pause, connect and enjoy the little things.</p>
+      </div>
+      <div class="intro-doodle" aria-hidden="true">☕</div>
+    </section>
+
+    <section class="menu-section section-pad" id="menu">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">BREWED FOR YOUR MOOD</p>
+          <h2>A menu worth<br><em>coming back to.</em></h2>
+        </div>
+        <p class="heading-side">Familiar favourites, made with care.<br>Find the cup that feels like you.</p>
+      </div>
+      <div class="menu-grid">
+        {% for item in menu %}
+        <article class="menu-card reveal">
+          <div class="menu-photo">
+            <img src="{{ item.image }}" alt="{{ item.name }}" loading="lazy">
+            <span class="photo-tag">{{ item.tag }}</span>
+          </div>
+          <div class="menu-card-body">
+            <div class="menu-meta"><span>{{ item.category }}</span><span>0{{ loop.index }}</span></div>
+            <div class="menu-title-row">
+              <h3>{{ item.name }}</h3><strong>₹{{ item.price }}</strong>
+            </div>
+            <p>{{ item.description }}</p>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+      <p class="menu-footnote">Our menu & prices are sample details. Please confirm availability and final prices at the
+        café.</p>
+    </section>
+
+    <section class="story-section" id="story">
+      <div class="story-photo"><img src="/static/images/CozyKannada.png" alt="Warm and welcoming coffee shop interior"
+          loading="lazy"></div>
+      <div class="story-panel">
+        <p class="eyebrow light">A PLACE TO FEEL AT HOME</p>
+        <h2>More than<br>a coffee <em>stop.</em></h2>
+        <p>We started with a little dream and a crazy heart. We wanted to build a place where strangers feel like
+          family, smiles come without reasons, and even the smallest moments become unforgettable.</p>
+        <p>No big promises, just good coffee, crazy conversations, and a place that feels like home.</p>
+        <a class="text-link light-link" href="#visit">This is our little world. This is Coffee ಅಂಗಡಿ. <span>↗</span></a>
+      </div>
+    </section>
+
+    <section class="owner-section section-pad" id="owner">
+      <div class="owner-copy">
+        <p class="eyebrow">THE PERSON BEHIND THE POUR</p>
+        <h2>A dream, a cup<br>and a whole lot<br>of <em>heart.</em></h2>
+        <blockquote>“Coffee is best when it brings people a little closer.”</blockquote>
+        <p class="owner-bio">Hello, I’m <strong>[Sudeep MS]</strong>, the founder of Coffee ಅಂಗಡಿ. This café is a
+          reflection of my love for good coffee and warm conversations. I hope every visit leaves you with a reason to
+          smile.</p>
+        <span class="signature">[Sudeep MS]</span>
+        <span class="owner-role">FOUNDER & HOST</span>
+      </div>
+      <div class="owner-photo">
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1000&q=85"
+          alt="Portrait placeholder for the café owner" loading="lazy">
+        <span class="photo-caption">THE BEHIND COFFEE ಅಂಗಡಿ</span>
+      </div>
+    </section>
+
+    <section class="values-section">
+      <div class="values-top">
+        <p class="eyebrow">THE LITTLE THINGS MATTER</p>
+        <h2>Made with care.<br><em>Remembered with love.</em></h2>
+      </div>
+      <div class="values-grid">
+        <article><span class="value-number">01</span>
+          <div class="value-icon">✳</div>
+          <h3>Freshly prepared</h3>
+          <p>Every cup is made with attention, care and a love for the craft.</p>
+        </article>
+        <article><span class="value-number">02</span>
+          <div class="value-icon">♡</div>
+          <h3>Warm hospitality</h3>
+          <p>A friendly hello, a comfortable seat and a place for everyone.</p>
+        </article>
+        <article><span class="value-number">03</span>
+          <div class="value-icon">☼</div>
+          <h3>Good moments</h3>
+          <p>For quick coffee breaks, long chats and everything in between.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="gallery-section section-pad" id="gallery">
+      <div class="section-heading gallery-heading">
+        <div>
+          <p class="eyebrow">A FEW MOMENTS AT THE ಅಂಗಡಿ</p>
+          <h2>Little things.<br><em>Lovely details.</em></h2>
+        </div>
+        <p class="heading-side">A glimpse of the coffee, craft<br>and atmosphere we love.</p>
+      </div>
+      <div class="gallery-grid">
+        <img class="gallery-tall" src="/static/images/COFFEENUTS.jpg" alt="Coffee being prepared" loading="lazy">
+        <img src="/static/images/Coffee Recipes.jpg" alt="Coffee cup on a table" loading="lazy">
+        <img src="/static/images/Coffee Mug.jpg" alt="Coffee beans and brewing" loading="lazy">
+        <img src="/static/images/download.jpg" alt="Latte art close up" loading="lazy">
+      </div>
+    </section>
+
+    <section class="visit-section" id="visit">
+      <div class="visit-backdrop"></div>
+      <div class="visit-content">
+        <p class="eyebrow light">YOUR TABLE IS WAITING</p>
+        <h2>Let's meet<br><em>over coffee.</em></h2>
+        <p>Drop by for your favourite cup. We would love to welcome you.</p>
+        <div class="visit-details">
+          <div><span>FIND US</span><strong>[Belagavi]</strong></div>
+          <div><span>CALL US</span><strong>[7676728211]</strong></div>
+          <div><span>OPENING HOURS</span><strong>[10:00 to 10:00]</strong></div>
+        </div>
+        <div class="visit-actions">
+          <a class="button button-gold" href="https://www.google.com/maps" target="_blank" rel="noopener">GET DIRECTIONS
+            ↗</a>
+          <a class="button button-outline" href="https://wa.me/" target="_blank" rel="noopener">WHATSAPP US ↗</a>
+        </div>
+        <p class="details-note">Replace the sample address, phone number and hours before publishing. Add your actual
+          WhatsApp number to the link.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#top"><span class="brand-mark">ಕ</span><span class="brand-name">COFFEE
+        <b>ಅಂಗಡಿ</b><small>BREWED WITH SOUL</small></span></a>
+    <p>Good coffee. Kind people. Better days.</p>
+    <div class="footer-links"><a href="#menu">MENU</a><a href="#story">OUR STORY</a><a href="#visit">CONTACT</a><a
+        href="[Instagram URL]">INSTAGRAM ↗</a></div>
+    <div class="footer-bottom"><span>© 2026 COFFEE ಅಂಗಡಿ. ALL RIGHTS RESERVED.</span><a href="#top">BACK TO TOP ↑</a>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
