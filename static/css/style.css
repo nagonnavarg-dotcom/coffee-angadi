@@ -861,8 +861,8 @@
    .site-header {
      height: 73px;
      padding: 0 5%;
-     position: fixed;
-     top: 0;
+     position: relative;
+     top: auto;
      left: 0;
      width: 100%;
      z-index: 9999;
@@ -1096,7 +1096,7 @@
  body {
    background-color: var(--cream);
    color: var(--ink);
-   padding-top: 88px;
+   padding-top: 0;
  }
 
  h1,
@@ -1212,15 +1212,17 @@
    .site-header {
      height: 73px;
      padding: 0 5%;
-     position: fixed;
+     position: sticky;
      top: 0;
-     left: 0;
+
      width: 100%;
      z-index: 9999;
+     background: trans;
    }
 
    body {
-     padding-top: 73px;
+     padding-top: 0;
+     margin: 0;
    }
  }
 
@@ -1233,8 +1235,8 @@
  }
 
  .site-header .brand-logo {
-   width: 20px;
-   height: 155px;
+   width: 120px;
+   height: 120px;
    object-fit: contain;
    display: block;
  }
